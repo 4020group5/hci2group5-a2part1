@@ -1,5 +1,6 @@
 package hci2.group5.a2part3.recognize;
 
+import hci2.group5.a2part3.shape.Line;
 import hci2.group5.a2part3.shape.Rectangle;
 import hci2.group5.a2part3.util.PointMaster;
 
@@ -16,6 +17,7 @@ public class RecognizingRectangle extends Recognizing {
 	private float left = Integer.MAX_VALUE, right = 0, top = 0, bottom = Integer.MAX_VALUE; // initial bound values
 	
 	private List<PointMaster> openCorners = new ArrayList<PointMaster>();
+	private PointMaster firstPoint, lastPoint;
 	
 	private boolean initialDraw = true;
 	
@@ -24,7 +26,7 @@ public class RecognizingRectangle extends Recognizing {
 		if (initialDraw ) {
 			// add first corner
 			openCorners.add(new PointMaster(x, y));
-			
+			firstPoint = new PointMaster(x,y);
 			return;
 		}
 		
@@ -39,6 +41,7 @@ public class RecognizingRectangle extends Recognizing {
 
 	@Override
 	public void touchUp(float x, float y) {
+		lastPoint = new PointMaster(x,y);
 		if (initialDraw ) {
 			// not initial draw anymore, make "touchDown" work normally
 			initialDraw = false;
@@ -50,10 +53,15 @@ public class RecognizingRectangle extends Recognizing {
 		if (areCornersAllClosed()) {
 			doneRecognizing(new Rectangle(left, top, right, bottom));
 		}
+		else{
+			doneRecognizing(new Line(firstPoint, lastPoint));
+		}
+
 	}
 	
 	private boolean areCornersAllClosed() {
 		return ! initialDraw && openCorners.isEmpty();
+		
 	}
 	
 	private void closeOrAddCorner(float x, float y) {
