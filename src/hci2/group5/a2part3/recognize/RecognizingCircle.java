@@ -1,23 +1,22 @@
 package hci2.group5.a2part3.recognize;
 
-public class RecognizingCircle extends Recognizing {
+import hci2.group5.a2part3.shape.Circle;
 
-	@Override
-	public void touchDown(float x, float y) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void touchMove(float x, float y) {
-		// TODO Auto-generated method stub
-		
-	}
+/**
+ * This algorithm recognize a rectangle using bounding box and corners.
+ */
+public class RecognizingCircle extends RecognizingByBoundingBoxAndCorners {
 
 	@Override
 	public void touchUp(float x, float y) {
-		// TODO Auto-generated method stub
+		
+		super.touchUp(x, y);
+		
+		if (areCornersAllClosed()) {
+			float centerX = (left + right) / 2f;
+			float centerY = (top + bottom) / 2f;
+			float radius = ((right - left) / 2f + (top - bottom) / 2f) / 2f;
+			doneRecognizing(new Circle(centerX, centerY, radius));
+		}
 	}
-	
-	// NOTE: when done, call doneRecognizing(Circle blabla)
 }
