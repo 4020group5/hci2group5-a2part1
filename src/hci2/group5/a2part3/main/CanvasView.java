@@ -1,7 +1,7 @@
 package hci2.group5.a2part3.main;
 
 import hci2.group5.a2part3.recognize.Recognizing;
-import hci2.group5.a2part3.recognize.RecognizingRectangle;
+import hci2.group5.a2part3.recognize.RecognizingTypes;
 import hci2.group5.a2part3.shape.DraftShape;
 import hci2.group5.a2part3.shape.Drawable;
 
@@ -14,7 +14,9 @@ import android.view.MotionEvent;
 import android.view.View;
 
 public class CanvasView extends View {
-
+	
+	private RecognizingTypes _currentRecognizingTyle = RecognizingTypes.RECTANGLE; // TODO dynamically change based on user's input
+	
 	private DraftShape _draftShape;
 	private Recognizing _recognizing;
 	private List<Drawable> _recoginizedShapes;
@@ -23,8 +25,12 @@ public class CanvasView extends View {
 		super(context);
 		
 		_draftShape = new DraftShape();
-		_recognizing = new RecognizingRectangle(); // TODO dynamically change based on user's input
+		setRecgnizing(_currentRecognizingTyle);
 		_recoginizedShapes = new ArrayList<Drawable>();
+	}
+
+	private void setRecgnizing(RecognizingTypes recognizingType) {
+		_recognizing = recognizingType.getAlgrithm();
 	}
 
 	@Override
@@ -61,6 +67,7 @@ public class CanvasView extends View {
 		if (_recognizing.isDone()) {
 			_recoginizedShapes.add(_recognizing.getRecognizedShape());
 			_draftShape.reset();
+			setRecgnizing(_currentRecognizingTyle); // reset
 		}
 		
 		invalidate();
