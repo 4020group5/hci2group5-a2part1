@@ -1,6 +1,5 @@
 package hci2.group5.a2part3.recognize;
 
-import android.R.integer;
 import hci2.group5.a2part3.shape.Triangle;
 import hci2.group5.a2part3.util.PointMaster;
 
@@ -49,7 +48,7 @@ public class RecognizingTriangle extends RecognizingByBoundingBoxAndCorners {
 
 		float result = getScop(previous_p, secondPoint); 
 
-		if(result > ROUGH_RANGE - scope)
+		if(result >= scope + ROUGH_RANGE)
 		{
 			if(_p2 == null)
 			{
@@ -58,8 +57,7 @@ public class RecognizingTriangle extends RecognizingByBoundingBoxAndCorners {
 				getSecondPoint = false;
 			}else if(_p3 == null){
 				_p3 = new PointMaster(x, y);
-				scope = result;
-				getSecondPoint = false;
+				return;	
 			}
 		}
 		
