@@ -1,6 +1,6 @@
 package hci2.group5.a2part3.util;
 
-import hci2.group5.a2part3.config.Config;
+import hci2.group5.a2part3.config.PointConfig;
 import android.graphics.PointF;
 
 /**
@@ -19,7 +19,7 @@ public class PointMaster extends PointF {
 	 * @param p If the corner is isRoughlyTheSame as p
 	 */
 	public boolean isRoughlyTheSame(PointF p) {
-		float roughValue = Config.TWO_POINTS_ROUGHLY_THE_SAME_VALUE_IN_PX;
+		float roughValue = PointConfig.TWO_POINTS_ROUGHLY_THE_SAME_VALUE_IN_PX;
 		return Math.abs(this.x - p.x) < roughValue && Math.abs(this.y - p.y) < roughValue;
 	}
 	
