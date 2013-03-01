@@ -16,7 +16,7 @@ public final class R {
     public static final class id {
         public static final int canvasView=0x7f070000;
         public static final int circle=0x7f070002;
-        public static final int color=0x7f070005;
+        public static final int fillColor=0x7f070005;
         public static final int line=0x7f070001;
         public static final int menu_settings=0x7f070006;
         public static final int rectangle=0x7f070004;

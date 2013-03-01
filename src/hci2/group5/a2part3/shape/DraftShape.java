@@ -15,7 +15,7 @@ public class DraftShape implements Drawable, TouchInputListener {
 	
 	@Override
 	public void draw(Canvas canvas) {
-		canvas.drawPath(_path, PaintFactory.defaultPaint);
+		canvas.drawPath(_path, PaintFactory.draftPaint);
 	}
 
 	@Override

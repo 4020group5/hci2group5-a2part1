@@ -52,10 +52,10 @@
             android:textSize="24sp" />
 
         <Button
-            android:id="@+id/color"
+            android:id="@+id/fillColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Fill color" />
+            android:text="Fill" />
     </LinearLayout>
 </RelativeLayout>

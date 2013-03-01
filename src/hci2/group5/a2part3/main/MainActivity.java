@@ -2,13 +2,17 @@ package hci2.group5.a2part3.main;
 
 import hci2.group5.a2part3.R;
 import hci2.group5.a2part3.config.Config;
+import hci2.group5.a2part3.config.PaintFactory;
 import hci2.group5.a2part3.recognize.RecognizingTypes;
 import hci2.group5.a2part3.util.PixelDpConverter;
 
 import java.util.Hashtable;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 
@@ -30,6 +34,17 @@ public class MainActivity extends Activity {
 
 		// get canvas view
 		_canvasView = (CanvasView) findViewById(R.id.canvasView);
+		
+		// set up fill color button
+		Button fillColorButton = (Button) findViewById(R.id.fillColor);
+		fillColorButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				PaintFactory.fillAllRecognizedShapesWithColor(Color.GREEN);
+				_canvasView.invalidate();
+			}
+		});
 		
 		// set default to recognize rectangle
 		_toggleButtons.get(RecognizingTypes.RECTANGLE.whatType()).setChecked(true);
