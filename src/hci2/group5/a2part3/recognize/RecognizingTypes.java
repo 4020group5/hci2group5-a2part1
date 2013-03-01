@@ -29,4 +29,8 @@ public enum RecognizingTypes {
 	};
 	
 	public abstract Recognizing getAlgrithm();
+
+	public String whatType() {
+		return name().toLowerCase();
+	}
 }
