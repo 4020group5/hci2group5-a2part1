@@ -29,7 +29,9 @@ public class PaintFactory {
 	}
 
 	public static void fillAllRecognizedShapesWithColor(int color) {
-		defaultPaint.setStyle(Paint.Style.FILL);
+		if (defaultPaint.getStyle() != Paint.Style.FILL) {
+			defaultPaint.setStyle(Paint.Style.FILL);
+		}
 		defaultPaint.setColor(color);
 	}
 }
