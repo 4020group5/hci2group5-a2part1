@@ -10,26 +10,26 @@ import java.util.List;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
 public class CanvasView extends View {
 	
-	private RecognizingTypes _currentRecognizingTyle = RecognizingTypes.RECTANGLE; // TODO dynamically change based on user's input
-	
 	private DraftShape _draftShape;
+	private RecognizingTypes _recognizingTyle;
 	private Recognizing _recognizing;
 	private List<Drawable> _recoginizedShapes;
 
-	public CanvasView(Context context) {
-		super(context);
+	public CanvasView(Context context, AttributeSet attrs) {
+		super(context, attrs);
 		
 		_draftShape = new DraftShape();
-		setRecgnizing(_currentRecognizingTyle);
 		_recoginizedShapes = new ArrayList<Drawable>();
 	}
 
-	private void setRecgnizing(RecognizingTypes recognizingType) {
+	public void setRecognizing(RecognizingTypes recognizingType) {
+		_recognizingTyle = recognizingType;
 		_recognizing = recognizingType.getAlgrithm();
 	}
 
@@ -43,6 +43,10 @@ public class CanvasView extends View {
 	
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
+		if (_recognizingTyle == null) {
+			throw new IllegalAccessError("Developer: No recognizing types specifid. Please call setRecgnizing(RecognizingTypes)");
+		}
+		
 		float x = event.getX();
 		float y = event.getY();
 		
@@ -67,7 +71,7 @@ public class CanvasView extends View {
 		if (_recognizing.isDone()) {
 			_recoginizedShapes.add(_recognizing.getRecognizedShape());
 			_draftShape.reset();
-			setRecgnizing(_currentRecognizingTyle); // reset
+			setRecognizing(_recognizingTyle); // reset
 		}
 		
 		invalidate();
