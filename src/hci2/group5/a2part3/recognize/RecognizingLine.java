@@ -5,14 +5,14 @@ import hci2.group5.a2part3.util.PointMaster;
 
 public class RecognizingLine extends Recognizing {
 
-	private PointMaster firstPoint;
+	private PointMaster _p1,_p2;
 	
 	private boolean initialDraw = true;
 
 	@Override
 	public void touchDown(float x, float y) {
 		if(initialDraw){
-			firstPoint = new PointMaster(x,y);
+			_p1 = new PointMaster(x,y);
 			return;
 		}
 	}
@@ -25,12 +25,12 @@ public class RecognizingLine extends Recognizing {
 	@Override
 	public void touchUp(float x, float y) {
 		// TODO Auto-generated method stub
-		PointMaster lastPoint = new PointMaster(x,y);
+		_p2 = new PointMaster(x,y);
 		if(initialDraw){
 			initialDraw = false;
 		}
-		if(!firstPoint.isRoughlyTheSame(lastPoint)){
-			doneRecognizing(new Line(firstPoint,lastPoint));
+		if(!_p1.isRoughlyTheSame(_p2)){
+			doneRecognizing(new Line(_p1,_p2));
 		}
 	}
 	

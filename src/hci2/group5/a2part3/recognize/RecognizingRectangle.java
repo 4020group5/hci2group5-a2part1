@@ -16,5 +16,4 @@ public class RecognizingRectangle extends RecognizingByBoundingBoxAndCorners {
 			doneRecognizing(new Rectangle(left, top, right, bottom));
 		}
 	}
-	
 }
