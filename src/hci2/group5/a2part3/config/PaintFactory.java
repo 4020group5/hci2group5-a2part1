@@ -5,22 +5,11 @@ import android.graphics.Paint;
 
 public class PaintFactory {
 
-	// DEFAULT_ALL_RECOGNIZED_SHAPE_COLOR
-	public static int DEFAULT_ALL_RECOGNIZED_SHAPE_COLOR;
-	static {
-		DEFAULT_ALL_RECOGNIZED_SHAPE_COLOR = Color.GREEN;
-	}
-	// DEFAULT_DRAFT_SHAPE_COLOR
-	public static int DEFAULT_DRAFT_SHAPE_COLOR;
-	static {
-		DEFAULT_DRAFT_SHAPE_COLOR = Color.BLACK;
-	}
+	public static int DEFAULT_ALL_RECOGNIZED_SHAPE_COLOR = Color.GREEN;
 	
-	// STROKE_COLOR_WHEN_FILLED
-	public static int STROKE_COLOR_WHEN_FILLED;
-	static {
-		STROKE_COLOR_WHEN_FILLED = DEFAULT_DRAFT_SHAPE_COLOR;
-	}
+	public static int DEFAULT_DRAFT_SHAPE_COLOR = Color.BLACK;
+	
+	public static int STROKE_COLOR_WHEN_FILLED= DEFAULT_DRAFT_SHAPE_COLOR;
 	
 	public static Paint defaultPaint;
 	static {
