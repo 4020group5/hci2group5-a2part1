@@ -8,7 +8,7 @@ public class RecognizingTriangle extends RecognizingByBoundingBoxAndCorners {
 	private PointMaster _p1,_p2,_p3,previous_p,secondPoint;
 	
 	private float scope;
-	private float ROUGH_RANGE = 5;
+	private float ROUGH_RANGE = 1f;
 	
 	private boolean initialDraw = true;
 	private boolean getSecondPoint = false;
