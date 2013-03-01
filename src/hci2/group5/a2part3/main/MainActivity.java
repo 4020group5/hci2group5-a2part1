@@ -1,6 +1,7 @@
 package hci2.group5.a2part3.main;
 
 import hci2.group5.a2part3.R;
+import hci2.group5.a2part3.config.ColorPaletteConfig;
 import hci2.group5.a2part3.config.PaintFactory;
 import hci2.group5.a2part3.config.PointConfig;
 import hci2.group5.a2part3.recognize.RecognizingTypes;
@@ -8,7 +9,7 @@ import hci2.group5.a2part3.recognize.RecognizingTypes;
 import java.util.Hashtable;
 
 import android.app.Activity;
-import android.graphics.Color;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -40,8 +41,7 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				PaintFactory.fillAllRecognizedShapesWithColor(Color.GREEN);
-				_canvasView.invalidate();
+				showDialog(ColorPaletteDialog.ID);
 			}
 		});
 		
@@ -50,6 +50,7 @@ public class MainActivity extends Activity {
 		_canvasView.setRecognizing(RecognizingTypes.RECTANGLE);
 		
 		PointConfig.init(getApplicationContext());
+		ColorPaletteConfig.init(getApplicationContext());
 	}
 
 	private void setUpToggleButtons() {
@@ -108,5 +109,20 @@ public class MainActivity extends Activity {
 				return;
 			}
 		}
+	}
+	
+	@Override
+	protected Dialog onCreateDialog(int id) {
+		if (id == ColorPaletteDialog.ID) {
+			
+			return new ColorPaletteDialog(this, new ColorPaletteGridView.Listener() {
+				@Override
+				public void colorChanged(int color) {
+					PaintFactory.fillAllRecognizedShapesWithColor(color);
+					_canvasView.invalidate();
+				}
+			});
+		}
+		return super.onCreateDialog(id);
 	}
 }
