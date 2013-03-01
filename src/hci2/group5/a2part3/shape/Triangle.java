@@ -2,20 +2,29 @@ package hci2.group5.a2part3.shape;
 
 import hci2.group5.a2part3.config.PaintFactory;
 import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Path;
 import android.graphics.PointF;
 
-public class Triangle implements Drawable {
+public class Triangle extends StrokableShape {
 
-	private PointF _p1,_p2,_p3; 
+	private Path _path; 
 	
 	public Triangle(PointF p1, PointF p2, PointF p3){
-		this._p1 = p1;this._p2 = p2;this._p3 = p3;
+		_path = new Path();
+		_path.moveTo(p1.x, p1.y);
+		_path.lineTo(p2.x, p2.y);
+		_path.lineTo(p3.x, p3.y);
+		_path.lineTo(p1.x, p1.y);
 	}
 	
 	@Override
-	public void draw(Canvas canvas) {
-		canvas.drawLine(_p1.x,_p1.y,_p2.x,_p2.y,PaintFactory.defaultPaint);
-		canvas.drawLine(_p2.x,_p2.y,_p3.x,_p3.y,PaintFactory.defaultPaint);
-		canvas.drawLine(_p3.x,_p3.y,_p1.x,_p1.y,PaintFactory.defaultPaint);
+	public Paint getPaint() {
+		return PaintFactory.defaultPaint;
+	}
+	
+	@Override
+	public void drawShape(Canvas canvas, Paint paint) {
+		canvas.drawPath(_path, getPaint());
 	}
 }
