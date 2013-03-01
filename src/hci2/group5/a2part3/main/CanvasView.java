@@ -16,6 +16,11 @@ import android.view.View;
 
 public class CanvasView extends View {
 	
+<<<<<<< HEAD
+=======
+	private RecognizingTypes _currentRecognizingTyle = RecognizingTypes.TRIANGLE; // TODO dynamically change based on user's input
+	
+>>>>>>> implementation of Rtriangle
 	private DraftShape _draftShape;
 	private RecognizingTypes _recognizingTyle;
 	private Recognizing _recognizing;
