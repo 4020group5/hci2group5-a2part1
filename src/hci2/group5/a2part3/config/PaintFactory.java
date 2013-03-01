@@ -8,6 +8,8 @@ public class PaintFactory {
 	public static final int DEFAULT_ALL_RECOGNIZED_SHAPE_COLOR = Color.GREEN;
 	public static final int DEFAULT_DRAFT_SHAPE_COLOR = Color.BLACK;
 	
+	public static int STROKE_COLOR_WHEN_FILLED = Color.RED;
+	
 	public static Paint defaultPaint;
 	static {
 		defaultPaint = new Paint();

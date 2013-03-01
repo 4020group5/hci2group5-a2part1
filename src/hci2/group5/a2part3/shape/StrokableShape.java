@@ -1,7 +1,7 @@
 package hci2.group5.a2part3.shape;
 
+import hci2.group5.a2part3.config.PaintFactory;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 
 /**
@@ -21,7 +21,7 @@ public abstract class StrokableShape implements Drawable {
 		if (paint.getStyle() == Paint.Style.FILL) {
 			paint.setStyle(Paint.Style.STROKE);
 			int originalColor = paint.getColor();
-			paint.setColor(Color.RED);
+			paint.setColor(PaintFactory.STROKE_COLOR_WHEN_FILLED);
 			
 			drawShape(canvas, paint);
 			
