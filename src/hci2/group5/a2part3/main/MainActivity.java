@@ -1,7 +1,9 @@
 package hci2.group5.a2part3.main;
 
 import hci2.group5.a2part3.R;
+import hci2.group5.a2part3.config.Config;
 import hci2.group5.a2part3.recognize.RecognizingTypes;
+import hci2.group5.a2part3.util.PixelDpConverter;
 
 import java.util.Hashtable;
 
@@ -32,6 +34,11 @@ public class MainActivity extends Activity {
 		// set default to recognize rectangle
 		_toggleButtons.get(RecognizingTypes.RECTANGLE.whatType()).setChecked(true);
 		_canvasView.setRecognizing(RecognizingTypes.RECTANGLE);
+		
+		// initialize config values
+		if (Config.TWO_POINTS_ROUGHLY_THE_SAME_VALUE_IN_PX == null) {
+			Config.TWO_POINTS_ROUGHLY_THE_SAME_VALUE_IN_PX = PixelDpConverter.dpToPx(Config.TWO_POINTS_ROUGHLY_THE_SAME_VALUE_IN_DP, getApplicationContext());
+		}
 	}
 
 	private void setUpToggleButtons() {
