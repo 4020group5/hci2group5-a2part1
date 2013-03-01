@@ -4,11 +4,58 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
 
-    <TextView
+    <hci2.group5.a2part3.main.CanvasView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/canvasView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true" >
+    </hci2.group5.a2part3.main.CanvasView>
+    
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="@string/hello_world" />
+        android:orientation="vertical" >
 
+        <ToggleButton
+            android:id="@+id/line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="-"
+            android:textOff="-"
+            android:textSize="24sp" />
+
+        <ToggleButton
+            android:id="@+id/circle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="o"
+            android:textOff="o"
+            android:textSize="24sp" />
+
+        <ToggleButton
+            android:id="@+id/triangle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="△"
+            android:textOff="△"
+            android:textSize="24sp" />
+
+        <ToggleButton
+            android:id="@+id/rectangle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="□"
+            android:textOff="□"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Fill color" />
+    </LinearLayout>
 </RelativeLayout>
