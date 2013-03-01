@@ -15,7 +15,7 @@ import android.view.View;
 
 public class CanvasView extends View {
 	
-	private RecognizingTypes _currentRecognizingTyle = RecognizingTypes.RECTANGLE; // TODO dynamically change based on user's input
+	private RecognizingTypes _currentRecognizingTyle = RecognizingTypes.LINE; // TODO dynamically change based on user's input
 	
 	private DraftShape _draftShape;
 	private Recognizing _recognizing;
