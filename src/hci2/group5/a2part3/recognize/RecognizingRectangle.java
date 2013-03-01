@@ -9,20 +9,11 @@ public class RecognizingRectangle extends RecognizingByBoundingBoxAndCorners {
 
 	@Override
 	public void touchUp(float x, float y) {
-<<<<<<< HEAD
 		
-=======
->>>>>>> implementation of Rtriangle
 		super.touchUp(x, y);
 		
 		if (areCornersAllClosed()) {
 			doneRecognizing(new Rectangle(left, top, right, bottom));
 		}
-<<<<<<< HEAD
 	}
-=======
-
-	}
-	
->>>>>>> implementation of Rtriangle
 }
