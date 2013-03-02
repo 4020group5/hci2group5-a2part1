@@ -62,7 +62,7 @@ public class RecognizingByBoundingBoxAndCorners extends Recognizing {
 		openCorners.add(new PointMaster(x, y));
 	}
 
-	private void updateBounds(float x, float y) {
+	protected void updateBounds(float x, float y) {
 		left = Math.min(left, x);
 		right = Math.max(right, x);
 		top = Math.max(top, y);
