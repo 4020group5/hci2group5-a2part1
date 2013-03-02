@@ -7,31 +7,20 @@ public class RecognizingLine extends Recognizing {
 
 	private PointMaster _p1,_p2;
 	
-	private boolean initialDraw = true;
-
 	@Override
 	public void touchDown(float x, float y) {
-		if(initialDraw){
-			_p1 = new PointMaster(x,y);
-			return;
-		}
+		_p1 = new PointMaster(x,y);
 	}
 
 	@Override
 	public void touchMove(float x, float y) {
-		
+		// do nothing
 	}
 
 	@Override
 	public void touchUp(float x, float y) {
-		// TODO Auto-generated method stub
 		_p2 = new PointMaster(x,y);
-		if(initialDraw){
-			initialDraw = false;
-		}
-		if(!_p1.isRoughlyTheSame(_p2)){
-			doneRecognizing(new Line(_p1,_p2));
-		}
+		
+		doneRecognizing(new Line(_p1,_p2));
 	}
-	
 }
