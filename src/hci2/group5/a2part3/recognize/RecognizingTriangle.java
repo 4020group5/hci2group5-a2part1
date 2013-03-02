@@ -54,11 +54,8 @@ public class RecognizingTriangle extends RecognizingByBoundingBoxAndCorners {
 					_p3 = new PointMaster(x, y);
 					return;
 				}
-				
 			}
-			
 		}
-		
 	}
 	
 	private float getScop(PointMaster p1, PointMaster p2){
