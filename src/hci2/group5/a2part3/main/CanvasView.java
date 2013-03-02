@@ -33,6 +33,11 @@ public class CanvasView extends View {
 		_recognizing = recognizingType.getAlgrithm();
 	}
 
+	public void clearDraft() {
+		_draftShape.reset();
+		invalidate();
+	}
+	
 	@Override
 	protected void onDraw(Canvas canvas) {
 		for (Drawable shape : _recoginizedShapes) {

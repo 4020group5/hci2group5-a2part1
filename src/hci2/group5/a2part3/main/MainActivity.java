@@ -72,6 +72,9 @@ public class MainActivity extends Activity {
 			toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 				@Override
 				public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+					// always clear draft
+					_canvasView.clearDraft();
+					
 					if (isChecked) {
 						if (buttonView == _checkedButton) {
 							// avoid listener call when user wants to uncheck the current one and
