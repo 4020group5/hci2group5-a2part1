@@ -39,6 +39,23 @@ public class PointMaster extends PointF {
 		return p.x >= this.x && p.y <= this.y;
 	}
 	
+	public PointMaster getMidianPointWith(PointMaster p2) {
+		return new PointMaster((this.x + p2.x) / 2f, (this.y + p2.y) / 2f);
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if (o instanceof PointMaster) {
+			PointMaster p2 = (PointMaster) o;
+			return this.hasTheSameXY(p2);
+		}
+		return false;
+	}
+
+	private boolean hasTheSameXY(PointMaster p2) {
+		return this.x == p2.x && this.y == p2.y;
+	}
+	
 	@Override
 	public String toString() {
 		return String.format("Point (%.0f, %.0f)", x, y);
